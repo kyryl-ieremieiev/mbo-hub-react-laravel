@@ -1,0 +1,42 @@
+services:
+  # PHP FPM Service
+  php:
+    image: wodby/php:latest
+    volumes:
+      - './:/var/www/html'
+    depends_on:
+      - mariadb
+
+  # Nginx Service
+  nginx:
+    image: nginx:latest
+    ports:
+      - 80:80
+    links:
+      - 'php'
+    volumes:
+      - './:/var/www/html'
+      - './docker/nginx:/etc/nginx/conf.d'
+    depends_on:
+      - php
+
+  # MariaDB Service
+  mariadb:
+    image: mariadb:latest
+    environment:
+      MYSQL_DATABASE: mbohub_db
+      MYSQL_USER: mbohub_user
+      MYSQL_PASSWORD: mbohub_pass
+      MYSQL_ROOT_PASSWORD: R00tp@ss
+    ports:
+      - 3308:3306
+
+  # phpMyAdmin Service
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mariadb
+      PMA_USER: root
+      PMA_PASSWORD: R00tp@ss
+    ports:
+      - "1088:80"
