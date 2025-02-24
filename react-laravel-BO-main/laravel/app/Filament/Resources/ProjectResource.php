@@ -29,9 +29,9 @@ class ProjectResource extends Resource
                     ->schema([
                         FileUpload::make('image')
                         ->image()
-                        ->label('Header'),
-                        TextInput::make('title')->required(),
-                        RichEditor::make('content')->required(),
+                        ->label('Afbeelding'),
+                        TextInput::make('title')->required()->label('Titel'),
+                        RichEditor::make('content')->label('Beschrijving')->required(),
                         DatePicker::make('published_at')
                             ->label('Publicatiedatum')
                             ->nullable(),
@@ -43,12 +43,12 @@ class ProjectResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('title')->sortable()->searchable(),
+                TextColumn::make('title')->sortable()->searchable()->label('Titel'),
                 TextColumn::make('content')
-                    ->label('Content')
+                    ->label('Beschrijving')
                     ->limit(50)
                     ->formatStateUsing(fn ($state) => strip_tags($state)),
-                ImageColumn::make('image')->circular(),
+                ImageColumn::make('image')->label('Afbeelding')->circular(),
                 TextColumn::make('published_at')
                     ->label('Publicatiedatum')
                     ->date('d-m-Y')
