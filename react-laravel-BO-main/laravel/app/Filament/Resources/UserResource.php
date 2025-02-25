@@ -23,10 +23,10 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                // Maak een section voor een kaartachtige layout
                 Section::make('')
                     ->schema([
                         TextInput::make('name')
+                            ->label('Naam')
                             ->required()
                             ->maxLength(255),
 
@@ -37,6 +37,7 @@ class UserResource extends Resource
 
                         TextInput::make('password')
                             ->password()
+                            ->label('Wachtwoord')
                             ->required(fn($record) => $record === null) // Alleen verplicht bij aanmaken
                             ->minLength(8)
                             ->maxLength(255)
@@ -44,11 +45,12 @@ class UserResource extends Resource
                             ->dehydrated(fn($state) => !empty($state)), // Alleen opslaan als er een nieuw wachtwoord is ingevuld
 
                         Select::make('role')
+                            ->label('Rol')
                             ->options([
-                                'admin' => 'Admin',
-                                'user' => 'User',
+                                'admin'   => 'Admin',
+                                'stagair' => 'Stagair',
                             ])
-                            ->default('user')
+                            ->default('stagair')
                             ->required()
                             ->visible(fn() => Filament::auth()->user()?->isAdmin()),
                     ]),
@@ -59,9 +61,9 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                TextColumn::make('name')->sortable()->searchable(),
+                TextColumn::make('name')->sortable()->searchable()->label('Naam'),
                 TextColumn::make('email')->sortable()->searchable(),
-                TextColumn::make('role')->sortable(),
+                TextColumn::make('role')->sortable()->label('Rol'),
             ]);
     }
 
