@@ -2,6 +2,7 @@ import Header from "@/components/header/header";
 
 import styles from "./home.module.css";
 import CTAButton from "@/components/ctaButton/ctaButton";
+import CenteredSection from "@/components/centeredSection/centeredSection";
 
 export default function Home() {
   return (
@@ -11,11 +12,23 @@ export default function Home() {
         <p>Verbinden van talent, innovatie en ondernemerschap in het hart van Amsterdam</p>
 
         <ul className={styles.headerLinks}>
-          <CTAButton href="#">Bekijk onze projecten</CTAButton>
-          <CTAButton href="#" alt={true}>Contact opnemen</CTAButton>
-        </ul>
+          <li>
+            <CTAButton href="#">Bekijk onze projecten</CTAButton>
+          </li>
 
+          <li>
+            <CTAButton href="#" alt={true}>Contact opnemen</CTAButton>
+          </li>
+        </ul>
       </Header>
+
+      <CenteredSection>
+        <h2>MBO-Hub Amsterdam is van start!</h2>
+        <p>MBO-Hub Amsterdam is een samenwerking tussen ROC van Amsterdam, Mediacollege Amsterdam en HMC, opgericht in het kader van Amsterdam 750. Wij zijn dé plek waar mbo-studenten, bedrijven, de Gemeente Amsterdam en initiatieven samenkomen om te werken aan de toekomst van onze stad.</p>
+        <p>De MBO-Hub biedt studenten een kans om hun talenten in de praktijk te brengen, door ze te betrekken bij projecten, evenementen en initiatieven rondom het 750-jarig jubileum van Amsterdam.</p>
+        <p>We verbinden bedrijven en organisaties met mbo-studenten, die meewerken aan diverse opdrachten zoals evenementenorganisatie, videoproducties, groenprojecten en nog veel meer. Hierdoor doen de studenten waardevolle praktijkervaring op, door middel van stages, projecten en leerwerkopdrachten, en dragen ze bij aan de ontwikkeling van Amsterdam.</p>
+        <p className="stylized">Mbo-studenten vormen het kloppende hart van de stad. Door hen te betrekken bij belangrijke projecten zorgen we voor nieuwe ideeën, jonge energie en een sterkere verbinding tussen onderwijs en de maatschappij.</p>
+      </CenteredSection>
     </>
   );
 }

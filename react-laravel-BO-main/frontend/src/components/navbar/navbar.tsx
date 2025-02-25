@@ -6,7 +6,9 @@ export default function Navbar() {
     return(
         <nav className={styles.navigation}>
             <figure className={styles.figure}>
-                <img src="/images/logo.webp" alt="MBO-Hub logo" />
+                <Link href="/">
+                    <img src="/images/logo.webp" alt="MBO-Hub logo" />
+                </Link>
             </figure>
 
             <ul className={styles.links}>

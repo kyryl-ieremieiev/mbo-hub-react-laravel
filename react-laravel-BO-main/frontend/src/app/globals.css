@@ -35,3 +35,12 @@ h1, h2, h3, h4 {
 
   color: var(--text-primary);
 }
+
+h2 {
+	font-size: 4rem;
+}
+
+.stylized {
+	font-weight: 700;
+	color: var(--text-primary);
+}
