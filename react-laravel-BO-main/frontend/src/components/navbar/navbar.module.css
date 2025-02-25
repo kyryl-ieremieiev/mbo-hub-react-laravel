@@ -27,7 +27,7 @@
     list-style: none;
 }
 
-.links a {
+.links li:not(.special) a {
     text-decoration: none;
     color: #4b5563;
 

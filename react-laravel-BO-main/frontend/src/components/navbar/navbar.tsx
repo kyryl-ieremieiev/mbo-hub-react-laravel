@@ -1,5 +1,6 @@
 import Link from "next/link";
 import styles from "./navbar.module.css";
+import CTAButton from "../ctaButton/ctaButton";
 
 export default function Navbar() {
     return(
@@ -24,8 +25,8 @@ export default function Navbar() {
                 <li>
                     <Link href="#">Onze Skills</Link>
                 </li>
-                <li>
-                    <Link href="#">Contact</Link>
+                <li className={styles.special}>
+                    <CTAButton href="#">Contact</CTAButton>
                 </li>
             </ul>
         </nav>

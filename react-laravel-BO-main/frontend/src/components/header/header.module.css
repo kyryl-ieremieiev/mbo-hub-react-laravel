@@ -1,0 +1,49 @@
+.header {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 5rem 1.5rem;
+}
+
+.header > h1,
+.header > h2,
+.header > p {
+    color: white;
+    text-align: center;
+}
+
+.header > h1 {
+    font-size: clamp(3.6rem, 5vw, 6rem);
+    font-weight: 700;
+}
+
+.header > p {
+    font-size: clamp(2rem, 3vw, 2.4rem);
+}
+
+.header.full {
+    min-height: 100vh;
+}
+
+.header.small {
+    min-height: 40vh;
+}
+
+.background {
+    position: absolute;
+    inset: 0;
+
+    z-index: -1;
+}
+
+.background img {
+    height: 100%;
+    width: 100%;
+
+    object-fit: cover;
+}
