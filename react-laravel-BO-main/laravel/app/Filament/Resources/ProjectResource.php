@@ -14,6 +14,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\DatePicker;
+use Filament\Forms\Components\Repeater;
 
 class ProjectResource extends Resource
 {
@@ -28,13 +29,23 @@ class ProjectResource extends Resource
                 Section::make('')
                     ->schema([
                         FileUpload::make('image')
-                        ->image()
-                        ->label('Afbeelding'),
+                            ->image()
+                            ->label('Afbeelding'),
                         TextInput::make('title')->required()->label('Titel'),
                         RichEditor::make('content')->label('Beschrijving')->required(),
                         DatePicker::make('published_at')
                             ->label('Publicatiedatum')
                             ->nullable(),
+                        Repeater::make('links')
+                            ->label('Links')
+                            ->schema([
+                                TextInput::make('url')
+                                    ->label('URL')
+                                    ->url(),
+                            ])
+                            ->addable()
+                            ->deletable(),
+
                     ]),
             ]);
     }
@@ -47,7 +58,7 @@ class ProjectResource extends Resource
                 TextColumn::make('content')
                     ->label('Beschrijving')
                     ->limit(50)
-                    ->formatStateUsing(fn ($state) => strip_tags($state)),
+                    ->formatStateUsing(fn($state) => strip_tags($state)),
                 ImageColumn::make('image')->label('Afbeelding')->circular(),
                 TextColumn::make('published_at')
                     ->label('Publicatiedatum')
