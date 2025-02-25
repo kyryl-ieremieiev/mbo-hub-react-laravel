@@ -11,22 +11,22 @@ export default function Navbar() {
 
             <ul className={styles.links}>
                 <li>
-                    <Link href="#">Home</Link>
+                    <Link href="/">Home</Link>
                 </li>
                 <li>
-                    <Link href="#">Projecten</Link>
+                    <Link href="/projects">Projecten</Link>
                 </li>
                 <li>
-                    <Link href="#">Kalender</Link>
+                    <Link href="/calendar">Kalender</Link>
                 </li>
                 <li>
-                    <Link href="#">Over Ons</Link>
+                    <Link href="/about">Over Ons</Link>
                 </li>
                 <li>
-                    <Link href="#">Onze Skills</Link>
+                    <Link href="/skills">Onze Skills</Link>
                 </li>
                 <li className={styles.special}>
-                    <CTAButton href="#">Contact</CTAButton>
+                    <CTAButton href="/contact">Contact</CTAButton>
                 </li>
             </ul>
         </nav>

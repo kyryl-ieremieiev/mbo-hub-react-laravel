@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function Header({ fullHeight, imagePath, color, children }: Props) {
-    const backgroundColor = imagePath ? '#00000080' : color ? color : '#28153c';
+    const backgroundColor = imagePath ? '#00000080' : color ? color : '#5e3289';
 
     return(
         <header className={`${styles.header} ${fullHeight ? styles.full : styles.small }`} style={{background: backgroundColor}}>
