@@ -20,6 +20,15 @@ html {
 
 body {
 	font-size: 1.6rem;
+
+	min-height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+}
+
+footer {
+	margin-top: auto;
 }
 
 a, p {
