@@ -38,9 +38,11 @@
     color: #4b5563;
 
     font-size: 1.6rem;
+
+    transition: color 100ms ease-in-out;
 }
 
-.links a:hover {
+.links li:not(.special):hover a {
 	color: var(--text-primary);
 }
 
