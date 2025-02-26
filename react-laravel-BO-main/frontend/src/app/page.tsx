@@ -3,6 +3,7 @@ import Header from "@/components/header/header";
 import styles from "./home.module.css";
 import CTAButton from "@/components/ctaButton/ctaButton";
 import CenteredSection from "@/components/centeredSection/centeredSection";
+import VideoSection from "@/components/videoSection/videoSection";
 
 export default function Home() {
   return (
@@ -29,6 +30,8 @@ export default function Home() {
         <p>We verbinden bedrijven en organisaties met mbo-studenten, die meewerken aan diverse opdrachten zoals evenementenorganisatie, videoproducties, groenprojecten en nog veel meer. Hierdoor doen de studenten waardevolle praktijkervaring op, door middel van stages, projecten en leerwerkopdrachten, en dragen ze bij aan de ontwikkeling van Amsterdam.</p>
         <p className="stylized">Mbo-studenten vormen het kloppende hart van de stad. Door hen te betrekken bij belangrijke projecten zorgen we voor nieuwe ideeën, jonge energie en een sterkere verbinding tussen onderwijs en de maatschappij.</p>
       </CenteredSection>
+
+      <VideoSection title="Ontdek MBO-Hub Amsterdam" videoUrl="https://www.youtube-nocookie.com/embed/kwZH1llzlCM?si=dKV2JShzQozA8P_B" />
     </>
   );
 }

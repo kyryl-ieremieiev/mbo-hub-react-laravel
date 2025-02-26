@@ -8,3 +8,7 @@
 .section p {
 	margin: 1.5rem 0;
 }
+
+.section h2 {
+    margin-bottom: 2rem;
+}
