@@ -1,0 +1,21 @@
+.grid {
+    width: 100%;
+    max-width: 192rem;
+
+    display: grid;
+
+    grid-template-columns: repeat(var(--columns), 1fr);
+    gap: 2.5rem;
+}
+
+.grid div {
+    min-height: 10rem;
+
+    border: solid 2px red;
+}
+
+@media only screen and (max-width: 769px) {
+    .grid {
+        grid-template-columns: 100%;
+    }
+}

@@ -1,0 +1,19 @@
+.card {
+    padding: 2rem;
+
+    border: 1px solid #e1e7ef;
+    border-radius: 0.5rem;
+
+    text-align: start;
+}
+
+a.card {
+    text-decoration: none;
+    color: initial;
+
+    transition: box-shadow 300ms ease-in-out;
+}
+
+a.card:hover {
+    box-shadow: 0 20px 25px -5px #0000001a, 0 8px 10px -6px #0000001a;
+}
