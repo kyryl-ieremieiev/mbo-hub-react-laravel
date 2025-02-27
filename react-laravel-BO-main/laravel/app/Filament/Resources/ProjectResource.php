@@ -15,6 +15,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\Toggle;
+use Filament\Tables\Columns\IconColumn;
 
 class ProjectResource extends Resource
 {
@@ -28,24 +30,18 @@ class ProjectResource extends Resource
             ->schema([
                 Section::make('')
                     ->schema([
-                        FileUpload::make('image')
-                            ->image()
-                            ->label('Afbeelding'),
+                        FileUpload::make('image')->image()->label('Afbeelding'),
                         TextInput::make('title')->required()->label('Titel'),
                         RichEditor::make('content')->label('Beschrijving')->required(),
-                        DatePicker::make('published_at')
-                            ->label('Publicatiedatum')
-                            ->nullable(),
+                        DatePicker::make('published_at')->label('Publicatiedatum')->nullable(),
+                        Toggle::make('show_on_homepage')->label('Toon op homepagina'),
                         Repeater::make('links')
                             ->label('Links')
                             ->schema([
-                                TextInput::make('url')
-                                    ->label('URL')
-                                    ->url(),
+                                TextInput::make('url')->label('URL')->url(),
                             ])
                             ->addable()
                             ->deletable(),
-
                     ]),
             ]);
     }
@@ -55,15 +51,13 @@ class ProjectResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('title')->sortable()->searchable()->label('Titel'),
-                TextColumn::make('content')
-                    ->label('Beschrijving')
-                    ->limit(50)
+                TextColumn::make('content')->label('Beschrijving')->limit(50)
                     ->formatStateUsing(fn($state) => strip_tags($state)),
                 ImageColumn::make('image')->label('Afbeelding')->circular(),
-                TextColumn::make('published_at')
-                    ->label('Publicatiedatum')
-                    ->date('d-m-Y')
-                    ->sortable(),
+                TextColumn::make('published_at')->label('Publicatiedatum')->date('d-m-Y')->sortable(),
+                IconColumn::make('show_on_homepage')
+                    ->label('Homepagina')
+                    ->boolean(),
             ]);
     }
 

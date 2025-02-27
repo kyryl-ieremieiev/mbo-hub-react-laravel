@@ -15,7 +15,9 @@ class Project extends Model
         'image',
         'published_at',
         'links',
+        'show_on_homepage',
     ];
+    
 
     protected $casts = [
         'links' => 'array',
