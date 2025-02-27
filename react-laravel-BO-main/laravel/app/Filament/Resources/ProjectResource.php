@@ -38,10 +38,13 @@ class ProjectResource extends Resource
                         Repeater::make('links')
                             ->label('Links')
                             ->schema([
-                                TextInput::make('url')->label('URL')->url(),
+                                TextInput::make('name')->label('Naam')->required(),
+                                TextInput::make('url')->label('URL')->url()->required(),
                             ])
                             ->addable()
-                            ->deletable(),
+                            ->deletable()
+                            ->collapsible(),
+
                     ]),
             ]);
     }
