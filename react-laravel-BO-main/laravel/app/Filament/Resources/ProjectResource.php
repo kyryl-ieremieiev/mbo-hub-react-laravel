@@ -43,7 +43,8 @@ class ProjectResource extends Resource
                             ])
                             ->addable()
                             ->deletable()
-                            ->collapsible(),
+                            ->collapsible()
+                            ->nullable(),
 
                     ]),
             ]);
