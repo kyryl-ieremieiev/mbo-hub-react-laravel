@@ -13,8 +13,10 @@ export async function fetchContent (type:string, limit?: number | null, params?:
             method: 'Get',
         })
         if(response.status === 200) {
-            setCache(type, response);
-            return response;
+            const content = await response.json();
+            setCache(type, JSON.stringify(content));
+            console.log(content);
+            return content;
         }
     }
     catch (error) {

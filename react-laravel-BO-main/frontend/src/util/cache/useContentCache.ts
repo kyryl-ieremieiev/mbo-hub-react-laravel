@@ -1,5 +1,9 @@
 export async function checkCache (key: string) {
-    return localStorage.getItem(key);
+    const raw = localStorage.getItem(key);
+
+    if(!raw) return null;
+
+    return JSON.parse(raw);
 }
 
 export async function setCache (key: string, value: any) {
