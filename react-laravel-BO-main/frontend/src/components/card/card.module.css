@@ -7,6 +7,13 @@
     text-align: start;
 }
 
+.card.centered {
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
 a.card {
     text-decoration: none;
     color: initial;

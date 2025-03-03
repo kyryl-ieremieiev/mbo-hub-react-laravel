@@ -4,15 +4,17 @@ import CenteredSection from "@/components/centeredSection/centeredSection";
 import Header from "@/components/header/header";
 import { useState, useEffect } from "react";
 import { getContent } from "@/util/content/useContent";
+import Grid from "@/components/grid/grid";
+import PersonCard from "@/components/personCard/personCard";
 
 export default function About() {
-  const [team, setTeam] = useState<any>([]);
+  const [team, setTeam] = useState<Array<any>>([]);
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     const fetchData = async () => {
       const fetchedTeam = await getContent('teams');
 
-      setTeam(fetchedTeam);
+      setTeam(fetchedTeam.data);
       setLoading(false);
     }
     fetchData();
@@ -29,13 +31,12 @@ export default function About() {
         <p>MBO-Hub Amsterdam verbindt studenten, bedrijven en onderwijsinstellingen om innovatieve projecten te realiseren. Wij geloven in het potentieel van MBO-talent en creëren kansen voor praktijkervaring en professionele groei.MBO-Hub Amsterdam verbindt studenten, bedrijven en onderwijsinstellingen om innovatieve projecten te realiseren. Wij geloven in het potentieel van MBO-talent en creëren kansen voor praktijkervaring en professionele groei.</p>
       </CenteredSection>
 
-      {
-        loading && (
-          <div>
-            { team }
-          </div>
-        )
-      }
+      <CenteredSection maxWidth="140rem">
+        <h2>Ontmoet ons Team</h2>
+        <Grid columns={3}>
+          {team.map(member => <PersonCard key={`team-${member.id}`} person={member} />)}
+        </Grid>
+      </CenteredSection>
     </>
   );
 }

@@ -3,6 +3,13 @@
     height: 20rem;
 }
 
+.image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+}
+
 .image.empty {
     background-color: #2f1944;
 }

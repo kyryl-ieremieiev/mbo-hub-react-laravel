@@ -5,15 +5,17 @@ import Link from "next/link";
 interface Props {
     link?: string;
 
+    centered?: boolean;
+
     children?: ReactNode;
 }
 
-export default function Card({ link, children }: Props) {
+export default function Card({ link, children, centered = false }: Props) {
     return(
         <>
             { link ? 
-                <Link href={link} className={styles.card}>{children}</Link> :
-                <article className={styles.card}>{children}</article>
+                <Link href={link} className={`${styles.card} ${centered ? styles.centered : ''}`}>{children}</Link> :
+                <article className={`${styles.card} ${centered ? styles.centered : ''}`}>{children}</article>
             }
         </>
     );

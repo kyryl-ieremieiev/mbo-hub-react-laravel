@@ -1,0 +1,10 @@
+.pfp {
+    width: 100%;
+    max-width: 10rem;
+
+    margin-bottom: 1rem;
+}
+
+.pfp img {
+    width: 100%;
+}
