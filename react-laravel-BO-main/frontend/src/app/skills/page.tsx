@@ -1,6 +1,22 @@
+"use client";
+
 import CenteredSection from "@/components/centeredSection/centeredSection";
+import { useState, useEffect } from "react";
+import { getContent } from "@/util/content/useContent";
 
 export default function Skills() {
+  const [skills, setSkills] = useState<any>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      const fetchedSkills = await getContent('skills');
+
+      setSkills(fetchedSkills);
+      setLoading(false);
+    }
+    fetchData();
+  }, [])
+
   return (
     <>
       <CenteredSection>
