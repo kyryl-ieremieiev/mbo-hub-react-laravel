@@ -34,11 +34,11 @@ export default function Home() {
 
         <ul className={styles.headerLinks}>
           <li>
-            <CTAButton href="#">Bekijk onze projecten</CTAButton>
+            <CTAButton href="/projects">Bekijk onze projecten</CTAButton>
           </li>
 
           <li>
-            <CTAButton href="#" alt={true}>Contact opnemen</CTAButton>
+            <CTAButton href="/contact" alt={true}>Contact opnemen</CTAButton>
           </li>
         </ul>
       </Header>
