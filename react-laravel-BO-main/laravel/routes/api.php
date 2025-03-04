@@ -14,6 +14,7 @@ Route::get('/user', function (Request $request) {
 
 
 Route::get('/projects', [ProjectController::class, 'index']);
+Route::get('/projects/{slug}', [ProjectController::class, 'show']);
 Route::get('/events', [EventController::class, 'index']);
 Route::get('/skills', [SkillController::class, 'index']);
 Route::get('/teams', [TeamController::class, 'index']);
