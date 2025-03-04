@@ -1,0 +1,30 @@
+.tags {
+    display: flex;
+    gap: 0.5rem;
+
+    flex-wrap: wrap;
+
+    margin: 0.5rem 0;
+}
+
+.tag {
+    list-style: none;
+
+    padding: 0.2rem 1rem;
+
+    border-radius: 5rem;
+
+    font-size: 90%;
+    color: var(--fg);
+    background: var(--bg);
+
+    font-weight: bold;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tag:hover {
+    background: var(--bg-hover);
+}
