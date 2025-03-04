@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
+use Filament\Forms\Components\TagsInput;
 
 class EventResource extends Resource
 {
@@ -41,6 +42,11 @@ class EventResource extends Resource
                             ->label('Datum'),
                         TextInput::make('location')
                             ->label('Locatie'),
+                        TagsInput::make('tags')
+                            ->label('Tags')
+                            ->placeholder('Voeg tags toe en druk op Enter')
+                            ->splitKeys(['Enter', ','])
+                            ->nullable(),
                     ]),
             ]);
     }
@@ -50,7 +56,7 @@ class EventResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('title')->sortable()->searchable()->label('Titel'),
-                TextColumn::make('description')->limit(50)->formatStateUsing(fn ($state) => strip_tags($state))->label('Beschrijving'),
+                TextColumn::make('description')->limit(50)->formatStateUsing(fn($state) => strip_tags($state))->label('Beschrijving'),
                 TextColumn::make('location')->sortable()->label('Locatie'),
                 ImageColumn::make('image')->circular()->label('Afbeelding'),
                 TextColumn::make('date')->date('d-m-Y')->sortable()->label('Datum')

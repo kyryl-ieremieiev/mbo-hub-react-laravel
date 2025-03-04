@@ -12,5 +12,11 @@ class Event extends Model
         'date',
         'location',
         'image',
+        'tags',
     ];
+    
+    protected $casts = [
+        'tags' => 'array',
+    ];
+    
 }

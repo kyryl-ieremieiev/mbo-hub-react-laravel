@@ -21,5 +21,6 @@ class Project extends Model
 
     protected $casts = [
         'links' => 'array',
+        'tags' => 'array',
     ];
 }

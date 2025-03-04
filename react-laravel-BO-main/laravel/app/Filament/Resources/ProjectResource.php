@@ -17,6 +17,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\IconColumn;
+use Filament\Forms\Components\TagsInput;
 
 class ProjectResource extends Resource
 {
@@ -35,6 +36,11 @@ class ProjectResource extends Resource
                         RichEditor::make('content')->label('Beschrijving')->required(),
                         DatePicker::make('published_at')->label('Publicatiedatum')->nullable(),
                         Toggle::make('show_on_homepage')->label('Toon op homepagina'),
+                        TagsInput::make('tags')
+                            ->label('Tags')
+                            ->placeholder('Voeg tags toe en druk op Enter')
+                            ->splitKeys(['Enter', ','])
+                            ->nullable(),
                         Repeater::make('links')
                             ->label('Links')
                             ->schema([
@@ -45,7 +51,6 @@ class ProjectResource extends Resource
                             ->deletable()
                             ->collapsible()
                             ->nullable(),
-
                     ]),
             ]);
     }
