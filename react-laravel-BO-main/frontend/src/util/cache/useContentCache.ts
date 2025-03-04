@@ -7,5 +7,8 @@ export async function checkCache (key: string) {
 }
 
 export async function setCache (key: string, value: any) {
+    if(typeof value === 'object') {
+        value = JSON.stringify(value);
+    }
     localStorage.setItem(key, value)
 }

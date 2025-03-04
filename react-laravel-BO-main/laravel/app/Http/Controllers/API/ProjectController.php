@@ -11,7 +11,8 @@ class ProjectController extends Controller
     public function index(Request $request)
     {
         $query = Project::query();
-
+        $limit = 10;
+        
         if ($request->has('title')) {
             $query->where('title', 'like', '%' . $request->title . '%');
         }
@@ -20,7 +21,15 @@ class ProjectController extends Controller
             $query->whereDate('published_at', $request->published_at);
         }
 
-        $projects = $query->orderBy('published_at', 'desc')->paginate(10);
+        if($request->has('home')) {
+            $query->where('show_on_homepage', 1);
+        }
+
+        if($request->has('limit')) {
+            $limit = $request->limit;
+        }
+
+        $projects = $query->orderBy('published_at', 'desc')->paginate($limit);
 
         return response()->json($projects);
     }
