@@ -12,7 +12,15 @@
     color: white;
 }
 
+.normal:hover {
+    background-color: #c31d2e;
+}
+
 .alt {
     background: white;
     color: #e03344;
+}
+
+.alt:hover {
+    background: #e6e6e6;
 }

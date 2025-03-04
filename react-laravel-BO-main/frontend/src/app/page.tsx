@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <>
       <Header fullHeight={true} imagePath="images/cover-home.jpg">
-        <h1>Met studentenkracht naar de toekomst van Amsterdam.</h1>
+        <h1>Met studentenkracht naar de toekomst van Amsterdam</h1>
         <p>Verbinden van talent, innovatie en ondernemerschap in het hart van Amsterdam</p>
 
         <ul className={styles.headerLinks}>
