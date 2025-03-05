@@ -1,4 +1,4 @@
-.headerLinks {
+.list {
     display: flex;
 
     flex-direction: row;
@@ -9,4 +9,6 @@
     flex-wrap: wrap;
 
     margin-top: 1.5rem;
+
+    list-style: none;
 }
