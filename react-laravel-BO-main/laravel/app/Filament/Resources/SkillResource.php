@@ -34,12 +34,16 @@ class SkillResource extends Resource
                         RichEditor::make('description')
                             ->label('Beschrijving')
                             ->required(),
-                        TextInput::make('email')
-                            ->label('E-mailadres')
-                            ->email(),
-                        TextInput::make('email_subject')
-                            ->label('Mailonderwerp')
-                            ->maxLength(255),
+                        Section::make('Call to Action')
+                            ->schema([
+                                TextInput::make('email')
+                                    ->label('E-mailadres')
+                                    ->email(),
+                                TextInput::make('email_subject')
+                                    ->label('Mailonderwerp')
+                                    ->maxLength(255),
+                            ])
+                            ->columns(1),
                         Repeater::make('tags')
                             ->label('Tags')
                             ->schema([
