@@ -7,8 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Skill extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'title',
         'description',
+        'tags',
+        'email',
+        'email_subject',
+    ];
+
+    protected $casts = [
+        'tags' => 'array',
     ];
 }
