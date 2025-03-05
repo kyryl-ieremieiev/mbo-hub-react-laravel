@@ -2,16 +2,15 @@
 
 import Header from "@/components/header/header";
 
-import styles from "./home.module.css";
 import CTAButton from "@/components/ctaButton/ctaButton";
 import CenteredSection from "@/components/centeredSection/centeredSection";
 import VideoSection from "@/components/videoSection/videoSection";
 import Grid from "@/components/grid/grid";
 import Card from "@/components/card/card";
-import ImageCard from "@/components/imageCard/imageCard";
 import ProjectCard from "@/components/projectCard/projectCard";
 import { useEffect, useState } from "react";
 import { getContent } from "@/util/content/useContent";
+import FlexList from "@/components/flexList/flexList";
 
 export default function Home() {
     const [projects, setProjects] = useState<Array<any>>([]);
@@ -32,7 +31,7 @@ export default function Home() {
         <h1>Met studentenkracht naar de toekomst van Amsterdam</h1>
         <p>Verbinden van talent, innovatie en ondernemerschap in het hart van Amsterdam</p>
 
-        <ul className={styles.headerLinks}>
+        <FlexList>
           <li>
             <CTAButton href="/projects">Bekijk onze projecten</CTAButton>
           </li>
@@ -40,7 +39,7 @@ export default function Home() {
           <li>
             <CTAButton href="/contact" alt={true}>Contact opnemen</CTAButton>
           </li>
-        </ul>
+        </FlexList>
       </Header>
 
       <CenteredSection>

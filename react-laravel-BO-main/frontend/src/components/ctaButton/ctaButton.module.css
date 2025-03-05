@@ -19,6 +19,8 @@
 .alt {
     background: white;
     color: #e03344;
+
+    border: 1px solid #e6e6e6;
 }
 
 .alt:hover {
