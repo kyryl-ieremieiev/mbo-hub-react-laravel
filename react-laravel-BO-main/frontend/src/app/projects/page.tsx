@@ -3,6 +3,8 @@
 import Header from "@/components/header/header";
 import { useEffect, useState } from "react";
 import { getContent } from "@/util/content/useContent";
+import { ProjectsInterface, ProjectInterface } from "@/util/interface/projects";
+
 import CenteredSection from "@/components/centeredSection/centeredSection";
 import Grid from "@/components/grid/grid";
 import ProjectCard from "@/components/projectCard/projectCard";
@@ -10,13 +12,13 @@ import FlexList from "@/components/flexList/flexList";
 import CTAButton from "@/components/ctaButton/ctaButton";
 
 export default function Projects() {
-  const [projects, setProjects] = useState<Array<any>>([]);
+  const [projects, setProjects] = useState<ProjectInterface[] | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     const fetchData = async () => {
-      const fetchedProjects = await getContent('projects');
+      const { data, current_page } = await getContent('projects');
 
-      setProjects(fetchedProjects.data);
+      setProjects(data);
       setLoading(false);
     }
     fetchData();
@@ -31,9 +33,13 @@ export default function Projects() {
 
       <CenteredSection maxWidth="140rem">
         <h2>Alle projecten</h2>
-        <Grid columns={3}>
-          {projects.map(project => <ProjectCard key={`project-${project.id}`} project={project} />)}
-        </Grid>
+        {
+          projects && (
+            <Grid columns={3}>
+              {projects.map(project => <ProjectCard key={`project-${project.id}`} project={project} />)}
+            </Grid>
+          )
+        }
       </CenteredSection>
 
       <CenteredSection>
