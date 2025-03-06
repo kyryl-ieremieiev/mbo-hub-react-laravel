@@ -3,14 +3,14 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use App\Models\Team;
+use App\Models\DeveloperTeam;
 use Illuminate\Http\Request;
 
-class TeamController extends Controller
+class DeveloperTeamController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Team::query();
+        $query = DeveloperTeam::query();
 
         if ($request->has('name')) {
             $query->where('name', 'like', '%' . $request->name . '%');
@@ -20,8 +20,8 @@ class TeamController extends Controller
             $query->where('role', 'like', '%' . $request->role . '%');
         }
 
-        $teams = $query->orderBy('name', 'asc')->get();
+        $developerTeams = $query->orderBy('name', 'asc')->get();
 
-        return response()->json($teams);
+        return response()->json($developerTeams);
     }
 }

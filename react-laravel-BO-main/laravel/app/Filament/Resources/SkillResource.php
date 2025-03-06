@@ -11,6 +11,9 @@ use Filament\Forms\Components\RichEditor;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Forms\Components\Repeater;
+use Filament\Forms\Components\ColorPicker;
+use Filament\Tables\Columns\BadgeColumn;
 
 class SkillResource extends Resource
 {
@@ -31,6 +34,24 @@ class SkillResource extends Resource
                         RichEditor::make('description')
                             ->label('Beschrijving')
                             ->required(),
+                        Section::make('Call to Action')
+                            ->schema([
+                                TextInput::make('email')
+                                    ->label('E-mailadres')
+                                    ->email(),
+                                TextInput::make('email_subject')
+                                    ->label('Mailonderwerp')
+                                    ->maxLength(255),
+                            ])
+                            ->columns(1),
+                        Repeater::make('tags')
+                            ->label('Tags')
+                            ->schema([
+                                TextInput::make('name')->label('Naam')->required(),
+                                ColorPicker::make('color')->label('Kleur')->default('#000000'),
+                            ])
+                            ->collapsible()
+                            ->columns(2),
                     ])
                     ->columns(1)
             ]);
@@ -47,7 +68,7 @@ class SkillResource extends Resource
                 TextColumn::make('description')
                     ->label('Beschrijving')
                     ->limit(100)
-                    ->formatStateUsing(fn ($state) => strip_tags($state)),
+                    ->formatStateUsing(fn($state) => strip_tags($state)),
             ]);
     }
 

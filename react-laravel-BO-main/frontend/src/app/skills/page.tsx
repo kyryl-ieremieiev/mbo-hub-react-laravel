@@ -26,9 +26,12 @@ export default function Skills() {
         <p>Ontdek de diverse vaardigheden van onze MBO-studenten en zie hoe zij kunnen bijdragen aan jouw project</p>
       </CenteredSection>
 
-      <Grid columns={3}>
-        {skills.map(skill => <SkillCard key={`skill-${skill.id}`} skill={skill}></SkillCard>)}
-      </Grid>
+      <CenteredSection maxWidth="140rem">
+        <Grid columns={3}>
+          {skills.map(skill => <SkillCard key={`skill-${skill.id}`} skill={skill}></SkillCard>)}
+        </Grid>
+      </CenteredSection>
+
     </>
   );
 }

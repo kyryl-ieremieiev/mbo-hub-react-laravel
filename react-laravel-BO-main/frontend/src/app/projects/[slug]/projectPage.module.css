@@ -1,0 +1,7 @@
+.content {
+    text-align: start;
+}
+
+.content ul, .content ol {
+    list-style-position: inside;
+}

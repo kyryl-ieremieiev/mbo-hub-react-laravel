@@ -5,19 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Skill extends Model
+class DeveloperTeam extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'description',
-        'tags',
-        'email',
-        'email_subject',
-    ];
-
-    protected $casts = [
-        'tags' => 'array',
+        'name',
+        'role',
+        'image'
     ];
 }

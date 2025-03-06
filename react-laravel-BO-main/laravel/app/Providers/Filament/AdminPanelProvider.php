@@ -27,6 +27,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
+            ->brandName('MBO Hub')
             ->colors([
                 'primary' => Color::Amber,
             ])

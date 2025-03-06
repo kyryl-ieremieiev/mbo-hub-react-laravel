@@ -5,7 +5,7 @@ import styles from "./header.module.css";
 interface Props {
     fullHeight: boolean;
 
-    imagePath?: string;
+    imagePath?: string | null;
     color?: string;
 
     children?: ReactNode;

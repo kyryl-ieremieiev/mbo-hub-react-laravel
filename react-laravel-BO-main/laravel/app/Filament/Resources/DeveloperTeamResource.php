@@ -2,8 +2,8 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\TeamResource\Pages;
-use App\Models\Team;
+use App\Filament\Resources\DeveloperTeamResource\Pages;
+use App\Models\DeveloperTeam;
 use Filament\Forms;
 use Filament\Forms\Components\Section;
 use Filament\Forms\Components\TextInput;
@@ -13,11 +13,11 @@ use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 
-class TeamResource extends Resource
+class DeveloperTeamResource extends Resource
 {
-    protected static ?string $model = Team::class;
+    protected static ?string $model = DeveloperTeam::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-user-group';
+    protected static ?string $navigationIcon = 'heroicon-o-code-bracket-square';
 
     protected static ?string $navigationGroup = 'Teams';
 
@@ -30,7 +30,7 @@ class TeamResource extends Resource
                         FileUpload::make('image')
                             ->image()
                             ->label('Foto')
-                            ->directory('teams'),
+                            ->directory('developer_teams'),
                         TextInput::make('name')
                             ->label('Naam')
                             ->required()
@@ -56,7 +56,7 @@ class TeamResource extends Resource
                     ->label('Functie')
                     ->sortable()
                     ->searchable(),
-                ImageColumn::make('photo')
+                ImageColumn::make('image')
                     ->label('Foto')
                     ->circular(),
             ]);
@@ -70,9 +70,9 @@ class TeamResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index'  => Pages\ListTeams::route('/'),
-            'create' => Pages\CreateTeam::route('/create'),
-            'edit'   => Pages\EditTeam::route('/{record}/edit'),
+            'index'  => Pages\ListDeveloperTeams::route('/'),
+            'create' => Pages\CreateDeveloperTeam::route('/create'),
+            'edit'   => Pages\EditDeveloperTeam::route('/{record}/edit'),
         ];
     }
 }
