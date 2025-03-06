@@ -18,6 +18,7 @@ class Project extends Model
         'links',
         'show_on_homepage',
         'tags',
+        'amsterdam_750_slider'
     ];
     
 

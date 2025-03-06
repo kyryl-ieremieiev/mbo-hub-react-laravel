@@ -36,6 +36,7 @@ class ProjectResource extends Resource
                         RichEditor::make('content')->label('Beschrijving')->required(),
                         DatePicker::make('published_at')->label('Publicatiedatum')->nullable(),
                         Toggle::make('show_on_homepage')->label('Toon op homepagina'),
+                        Toggle::make('amsterdam_750_slider')->label('Amsterdam 750 Slinger')->default(false),
                         TagsInput::make('tags')
                             ->label('Tags')
                             ->placeholder('Voeg tags toe en druk op Enter')
