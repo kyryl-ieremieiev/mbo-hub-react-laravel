@@ -20,7 +20,8 @@ class TeamController extends Controller
             $query->where('role', 'like', '%' . $request->role . '%');
         }
 
-        $teams = $query->orderBy('name', 'asc')->get();
+        // sorry
+        $teams = $query->orderBy('name', 'asc')->paginate(500);
 
         return response()->json($teams);
     }
