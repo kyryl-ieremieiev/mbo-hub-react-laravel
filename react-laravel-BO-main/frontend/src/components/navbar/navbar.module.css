@@ -33,6 +33,11 @@
     list-style: none;
 }
 
+.links li:not(.special) {
+    display: flex;
+    align-items: center;
+}
+
 .links li:not(.special) a {
     text-decoration: none;
     color: #4b5563;
