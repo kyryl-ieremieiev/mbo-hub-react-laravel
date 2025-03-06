@@ -1,0 +1,11 @@
+.socials {
+    display: flex;
+    gap: 1rem;
+
+    list-style: none;
+}
+
+
+.socials a {
+    color: var(--color);
+}

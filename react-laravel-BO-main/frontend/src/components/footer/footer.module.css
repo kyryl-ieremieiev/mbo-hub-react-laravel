@@ -40,22 +40,6 @@
     gap: 2rem;
 }
 
-.email {
-    display: flex;
-    align-items: center;
-
-    gap: 0.5rem;
-}
-
-.email svg {
-    width: 1.8rem;
-    height: 1.8rem;
-}
-
-.socials {
-    display: flex;
-    gap: 1rem;
-}
 
 .separator {
     margin: 2rem 1rem;
