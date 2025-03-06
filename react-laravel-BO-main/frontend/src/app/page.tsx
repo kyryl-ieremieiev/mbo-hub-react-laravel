@@ -18,7 +18,7 @@ export default function Home() {
     const [loading, setLoading] = useState<boolean>(true);
     useEffect(() => {
       const fetchData = async () => {
-        const fetchedProjects = await getContent('projects', 6, new URLSearchParams({home: 'true'}));
+        const fetchedProjects = await getContent('projects', new URLSearchParams({ home: 'true', limit:'6' }));
         console.log(fetchedProjects)
         setProjects(fetchedProjects.data);
         setLoading(false);

@@ -1,10 +1,10 @@
 import getConfig from "next/config";
 import { setCache } from "../cache/useContentCache";
 
-export async function fetchContent (type:string, limit?: number | null, params?: URLSearchParams) {
+export async function fetchContent (type:string, params?: URLSearchParams) {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL
     try {
-        const response = await fetch(`${apiUrl}/${type}?${params?.toString()}`, {
+        const response = await fetch(`${apiUrl}/${type}?${ params?.toString() }`, {
             method: 'Get',
         })
         if(response.status === 200) {

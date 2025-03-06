@@ -12,9 +12,9 @@ export default function About() {
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     const fetchData = async () => {
-      const fetchedTeam = await getContent('teams');
+      const { data } = await getContent('teams');
 
-      setTeam(fetchedTeam.data);
+      setTeam(data);
       setLoading(false);
     }
     fetchData();
