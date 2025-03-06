@@ -1,5 +1,6 @@
 .cta {
-    margin-top: 1.5rem;
+    margin-top: auto;
+    padding-top: 1.5rem;
 
     display: flex;
     justify-content: flex-end;

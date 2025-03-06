@@ -15,7 +15,8 @@
     border-radius: 5rem;
 
     font-size: 90%;
-    color: hsl(from var(--color) h s calc(l + 40));
+    /* color: hsl(from var(--color) h s calc(l + 40)); */
+    color: #fff;
     background: var(--color);
 
     font-weight: bold;
