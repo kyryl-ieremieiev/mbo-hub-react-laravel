@@ -15,8 +15,8 @@
     border-radius: 5rem;
 
     font-size: 90%;
-    color: var(--fg);
-    background: var(--bg);
+    color: hsl(from var(--color) h s calc(l + 40));
+    background: var(--color);
 
     font-weight: bold;
 
@@ -26,5 +26,7 @@
 }
 
 .tag:hover {
-    background: var(--bg-hover);
+    background: hsl(from var(--color) h s calc(l - 10));
+
+    cursor: default;
 }
