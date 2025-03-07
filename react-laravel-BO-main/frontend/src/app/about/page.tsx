@@ -34,7 +34,9 @@ export default function About() {
       <CenteredSection maxWidth="140rem">
         <h2>Ontmoet ons Team</h2>
         <Grid columns={3}>
-          {team.map(member => <PersonCard key={`team-${member.id}`} person={member} />)}
+          {
+            team.map(member => <PersonCard key={`team-${member.id}`} person={member} />)
+          }
         </Grid>
       </CenteredSection>
     </>

@@ -10,7 +10,6 @@ export async function fetchContent (type:string, params?: URLSearchParams) {
         if(response.status === 200) {
             const content = await response.json();
             setCache(type, JSON.stringify(content));
-            console.log(content);
             return content;
         }
     }
