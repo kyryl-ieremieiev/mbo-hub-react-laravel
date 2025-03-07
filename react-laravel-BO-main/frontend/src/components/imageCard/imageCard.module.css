@@ -1,17 +1,29 @@
-.image {
+.imageWrapper {
     width: 100%;
     height: 20rem;
+
+    position: relative;
 }
 
-.image img {
+.image {
     width: 100%;
     height: 100%;
 
     object-fit: cover;
 }
 
-.image.empty {
+.imageWrapper.empty {
     background-color: #2f1944;
+}
+
+.banner {
+    width: 250px;
+    height: 250px;
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
 }
 
 .card {
