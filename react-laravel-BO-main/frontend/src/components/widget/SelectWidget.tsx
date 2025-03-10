@@ -13,6 +13,8 @@ export default function SelectWidget({ title, options, onEmit }: Props) {
                 {
                     options && (
                         <>
+                            <option value="">Selecteer een optie</option>
+                            
                             {
                                 options.map((option) => (
                                     <option value={option.id}>{ option.name }</option>

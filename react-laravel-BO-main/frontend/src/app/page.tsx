@@ -74,7 +74,13 @@ export default function Home() {
       <CenteredSection maxWidth="unset">
         <h2>Uitgelichte projecten</h2>
         <Grid columns={3}>
-          {projects.map(project => <ProjectCard project={project} key={`featured-project-${project.id}`} />)}
+          {
+            projects.length > 0 && (
+              <>
+                {projects.map(project => <ProjectCard project={project} key={`featured-project-${project.id}`} />)}
+              </>
+            )
+          }
         </Grid>
       </CenteredSection>
     </>

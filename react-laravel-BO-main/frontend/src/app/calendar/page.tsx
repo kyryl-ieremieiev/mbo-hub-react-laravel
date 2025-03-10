@@ -29,7 +29,7 @@ export default function CalendarPage() {
       setLoading(true);
       let params
       if(date || selectedTags) {
-        params = new URLSearchParams({ date: date, tag: selectedTags })
+        params = new URLSearchParams({ date: date, tags: selectedTags })
       }
 
       let { data } = await getContent('events', params);
