@@ -25,8 +25,9 @@ class EventController extends Controller
         }
 
         if($request->has('tag')) {
-            $query->whereHas('tags', function ($query) {
-                $query->where('id', $request['tag']);
+            $tagId = $request['tag'];
+            $query->whereHas('tags', function ($query) use ($tagId) {
+                $query->where('id', $tagId);
             });
         }
 
