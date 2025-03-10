@@ -4,7 +4,9 @@ import CenteredSection from "@/components/centeredSection/centeredSection";
 import { useState, useEffect, useCallback } from "react";
 import { getContent } from "@/util/content/useContent";
 import { parseDate } from "@/util/date/parseDate";
+
 import ContentSection from "@/components/calendar/contentSection";
+import SelectWidget from "@/components/widget/SelectWidget";
 
 import Calendar from "react-calendar";
 import 'react-calendar/dist/Calendar.css';
@@ -13,7 +15,9 @@ import styles from './calendar.module.css'
 export default function CalendarPage() {
   const [events, setEvents] = useState<any>([]);
   const [eventTypes, setEventTypes] = useState<any>([]);
+
   const [date, setDate] = useState<any>(null);
+  const [selectedTags, setTags] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -22,9 +26,10 @@ export default function CalendarPage() {
       setEventTypes(data);
     }
     const fetchData = async () => {
+      setLoading(true);
       let params
-      if(date) {
-        params = new URLSearchParams({ date: date })
+      if(date || selectedTags) {
+        params = new URLSearchParams({ date: date, tag: selectedTags })
       }
 
       let { data } = await getContent('events', params);
@@ -34,7 +39,7 @@ export default function CalendarPage() {
     }
     fetchEventTypes();
     fetchData();
-  }, [date])
+  }, [date, selectedTags])
 
   const changeDate = useCallback((newDate) => {
     if(date === null || date !== parseDate(newDate)) {
@@ -54,7 +59,9 @@ export default function CalendarPage() {
       <section className={styles.main}>
         <div className={styles.filters}>
           <Calendar value={date} onChange={changeDate}/>
-          
+          <SelectWidget title="Filter op Type" options={eventTypes} onEmit={(value) => {
+            setTags(value)
+          }}/>
         </div>
         <div>
           {
@@ -62,10 +69,7 @@ export default function CalendarPage() {
               <ContentSection content={ events }/>
             )
             :
-            (
-              <>
-              </>
-            )
+            null
           }
         </div>
       </section>
