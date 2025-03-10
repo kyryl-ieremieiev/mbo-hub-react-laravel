@@ -26,9 +26,7 @@ class EventController extends Controller
 
         if($request->has('tag')) {
             $tagId = $request['tag'];
-            $query->whereHas('tags', function ($query) use ($tagId) {
-                $query->where('id', $tagId);
-            });
+            $query->whereIn('id', [$tagId]);
         }
 
         $events = $query->orderBy('date', 'asc')->paginate(10);
