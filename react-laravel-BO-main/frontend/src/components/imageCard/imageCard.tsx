@@ -21,8 +21,8 @@ export default function ImageCard({ imagePath, alt = "", children, link = "#", b
                     <img className={styles.image} src={imagePath} alt={alt} />
                 }
 
-                { banner &&
-                    <img className={styles.banner} src="/images/banner.png" alt="" />
+                { banner ?
+                    <img className={styles.banner} src="/images/banner.png" alt="" /> : null
                 }
             </figure>
 
