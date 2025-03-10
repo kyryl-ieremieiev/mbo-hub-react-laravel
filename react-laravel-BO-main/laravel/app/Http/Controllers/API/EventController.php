@@ -24,10 +24,11 @@ class EventController extends Controller
             $query->where('location', 'like', '%' . $request->location . '%');
         }
 
-        if($request->has('tag')) {
-            $tagId = $request['tag'];
-            $query->whereHas('tags', function ($query) use ($tagId) {
-                $query->where('id', $tagId);
+        if ($request->has('tags')) {
+            $tagNames = explode(',', $request->tags);
+
+            $query->whereHas('tags', function ($q) use ($tagNames) {
+                $q->whereIn('name', $tagNames);
             });
         }
 
