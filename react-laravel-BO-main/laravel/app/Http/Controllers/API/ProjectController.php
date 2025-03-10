@@ -10,11 +10,11 @@ class ProjectController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Project::query();
+        $query = Project::with('tags');
         $limit = 10;
 
         if ($request->has('slug')) {
-            $project = Project::where('slug', $request->slug)->first();
+            $project = Project::with('tags')->where('slug', $request->slug)->first();
             return response()->json($project);
         }
 
@@ -39,10 +39,10 @@ class ProjectController extends Controller
         return response()->json($projects);
     }
 
-
     public function show($slug)
     {
-        $project = Project::where('slug', $slug)->firstOrFail();
+        $project = Project::with('tags')->where('slug', $slug)->firstOrFail();
         return response()->json($project);
     }
 }
+

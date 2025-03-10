@@ -18,6 +18,8 @@ use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\Toggle;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\Select;
+
 
 class ProjectResource extends Resource
 {
@@ -37,11 +39,11 @@ class ProjectResource extends Resource
                         DatePicker::make('published_at')->label('Publicatiedatum')->nullable(),
                         Toggle::make('show_on_homepage')->label('Toon op homepagina'),
                         Toggle::make('amsterdam_750_slider')->label('Amsterdam 750 Slinger')->default(false),
-                        TagsInput::make('tags')
+                        Select::make('tags')
                             ->label('Tags')
-                            ->placeholder('Voeg tags toe en druk op Enter')
-                            ->splitKeys(['Enter', ','])
-                            ->nullable(),
+                            ->multiple()
+                            ->relationship('tags', 'name')
+                            ->preload(),
                         Repeater::make('links')
                             ->label('Links')
                             ->schema([

@@ -10,7 +10,7 @@ class SkillController extends Controller
 {
     public function index(Request $request)
     {
-        $query = Skill::query();
+        $query = Skill::with('tags');
 
         if ($request->has('title')) {
             $query->where('title', 'like', '%' . $request->title . '%');
@@ -23,5 +23,11 @@ class SkillController extends Controller
         $skills = $query->orderBy('title', 'asc')->paginate(10);
 
         return response()->json($skills);
+    }
+
+    public function show($id)
+    {
+        $skill = Skill::with('tags')->findOrFail($id);
+        return response()->json($skill);
     }
 }

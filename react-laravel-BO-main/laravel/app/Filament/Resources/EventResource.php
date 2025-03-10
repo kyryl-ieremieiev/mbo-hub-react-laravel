@@ -16,6 +16,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Forms\Components\TagsInput;
+use Filament\Forms\Components\Select;
 
 class EventResource extends Resource
 {
@@ -42,11 +43,11 @@ class EventResource extends Resource
                             ->label('Datum'),
                         TextInput::make('location')
                             ->label('Locatie'),
-                        TagsInput::make('tags')
+                        Select::make('tags')
                             ->label('Tags')
-                            ->placeholder('Voeg tags toe en druk op Enter')
-                            ->splitKeys(['Enter', ','])
-                            ->nullable(),
+                            ->multiple()
+                            ->relationship('tags', 'name')
+                            ->preload(),
                     ]),
             ]);
     }

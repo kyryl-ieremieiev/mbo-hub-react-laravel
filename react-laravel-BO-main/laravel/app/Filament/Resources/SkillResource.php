@@ -14,6 +14,8 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Forms\Components\Repeater;
 use Filament\Forms\Components\ColorPicker;
 use Filament\Tables\Columns\BadgeColumn;
+use Filament\Forms\Components\Select;
+
 
 class SkillResource extends Resource
 {
@@ -44,16 +46,12 @@ class SkillResource extends Resource
                                     ->maxLength(255),
                             ])
                             ->columns(1),
-                        Repeater::make('tags')
+                            Select::make('tags')
                             ->label('Tags')
-                            ->schema([
-                                TextInput::make('name')->label('Naam')->required(),
-                                ColorPicker::make('color')->label('Kleur')->default('#000000'),
-                            ])
-                            ->collapsible()
-                            ->columns(2),
-                    ])
-                    ->columns(1)
+                            ->multiple()
+                            ->relationship('tags', 'name')
+                            ->preload(),
+                    ]),
             ]);
     }
 
