@@ -24,6 +24,12 @@ class EventController extends Controller
             $query->where('location', 'like', '%' . $request->location . '%');
         }
 
+        if($request->has('tag')) {
+            $query->whereHas('tags', function ($query) {
+                $query->where('id', $request['tag']);
+            });
+        }
+
         $events = $query->orderBy('date', 'asc')->paginate(10);
 
         return response()->json($events);
