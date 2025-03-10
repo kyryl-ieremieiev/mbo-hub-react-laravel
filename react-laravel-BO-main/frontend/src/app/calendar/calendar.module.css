@@ -1,4 +1,10 @@
 .main {
+    width: 100%;
+    max-width: 140rem;
+
+    padding: 0 1.5rem;
+    margin: 2rem auto;
+
     display: grid;
     grid-template-columns: 40% 60%;
 }
@@ -11,4 +17,26 @@
     padding-bottom: 1rem;
     padding-left: 2rem;
     padding-right: 2rem;
+
+    height: fit-content;
+
+    margin-right: 2rem;
+}
+
+.filters :global(.react-calendar) {
+    width: 100%;
+    border: none;
+}
+
+@media only screen and (max-width: 775px) {
+    .main {
+        grid-template-columns: 100%;
+    }
+
+    .filters {
+        margin-right: none;
+        margin-bottom: 2rem;
+
+        width: 100%;
+    }
 }

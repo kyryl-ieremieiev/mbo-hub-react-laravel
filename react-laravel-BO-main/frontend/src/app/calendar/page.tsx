@@ -47,9 +47,10 @@ export default function CalendarPage() {
   return (
     <>
       <CenteredSection>
-        <h2>Evenementenkalender</h2>
+        <h2>Kalender</h2>
         <p>Bekijk en filter aankomende evenementen en activiteiten</p>
       </CenteredSection>
+      
       <section className={styles.main}>
         <div className={styles.filters}>
           <Calendar value={date} onChange={changeDate}/>
