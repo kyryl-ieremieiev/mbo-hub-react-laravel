@@ -23,6 +23,8 @@ class EventTagController extends Controller
 
         $tags = $query->orderBy('name')->get();
 
-        return response()->json($tags);
+        return response()->json([
+            'data' => $tags,
+        ]);
     }
 }
