@@ -40,17 +40,28 @@ export default function About() {
 
       <CenteredSection maxWidth="140rem">
         <h2>Ontmoet ons Team</h2>
-        <Grid columns={3}>
-          {
-            team.map(member => <PersonCard key={`team-${member.id}`} person={member} />)
-          }
-        </Grid>
+        {
+          team &&
+          (
+            <Grid columns={3}>
+              {
+                team.map(member => <PersonCard key={`team-${member.id}`} person={member} />)
+              }
+            </Grid>
+          )
+        }
       </CenteredSection>
 
       <CenteredSection maxWidth="140rem">
         <h2>Ontmoet de developers</h2>
         <Grid columns={3}>
-          {devTeam.map(member => <PersonCard key={`team-${member.id}`} person={member} />)}
+          {
+            devTeam && (
+              <>
+                {devTeam.map(member => <PersonCard key={`team-${member.id}`} person={member} />)}
+              </>
+            )
+          }
         </Grid>
       </CenteredSection>
     </>
