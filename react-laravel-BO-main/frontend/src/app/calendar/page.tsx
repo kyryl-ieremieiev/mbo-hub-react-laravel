@@ -27,12 +27,15 @@ export default function CalendarPage() {
     }
     const fetchData = async () => {
       setLoading(true);
-      let params
-      if(date || selectedTags) {
-        params = new URLSearchParams({ date: date, tags: selectedTags })
+      let params:any = {}
+      if(date) {
+        params.date = date
+      }
+      if(selectedTags) {
+        params.tags = selectedTags
       }
 
-      let { data } = await getContent('events', params);
+      let { data } = await getContent('events', new URLSearchParams(params));
 
       setEvents(data);
       setLoading(false);
