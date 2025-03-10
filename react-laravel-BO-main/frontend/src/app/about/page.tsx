@@ -9,12 +9,19 @@ import PersonCard from "@/components/personCard/personCard";
 
 export default function About() {
   const [team, setTeam] = useState<Array<any>>([]);
+  const [devTeam, setDevTeam] = useState<Array<any>>([]);
+
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(() => {
     const fetchData = async () => {
       const { data } = await getContent('teams');
 
       setTeam(data);
+
+      const fetchedDevTeam = await getContent('developer-teams');
+
+      setDevTeam(fetchedDevTeam);
+
       setLoading(false);
     }
     fetchData();
@@ -37,6 +44,13 @@ export default function About() {
           {
             team.map(member => <PersonCard key={`team-${member.id}`} person={member} />)
           }
+        </Grid>
+      </CenteredSection>
+
+      <CenteredSection maxWidth="140rem">
+        <h2>Ontmoet de developers</h2>
+        <Grid columns={3}>
+          {devTeam.map(member => <PersonCard key={`team-${member.id}`} person={member} />)}
         </Grid>
       </CenteredSection>
     </>
