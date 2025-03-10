@@ -12,20 +12,27 @@ import styles from './calendar.module.css'
 
 export default function CalendarPage() {
   const [events, setEvents] = useState<any>([]);
+  const [eventTypes, setEventTypes] = useState<any>([]);
   const [date, setDate] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
+    const fetchEventTypes = async () => {
+      const { data } = await getContent('event-types');
+      setEventTypes(data);
+    }
     const fetchData = async () => {
       let params
       if(date) {
         params = new URLSearchParams({ date: date })
       }
-      const { data } = await getContent('events', params);
+
+      let { data } = await getContent('events', params);
 
       setEvents(data);
       setLoading(false);
     }
+    fetchEventTypes();
     fetchData();
   }, [date])
 
@@ -44,7 +51,10 @@ export default function CalendarPage() {
         <p>Bekijk en filter aankomende evenementen en activiteiten</p>
       </CenteredSection>
       <section className={styles.main}>
-        <Calendar value={date} onChange={changeDate}/>
+        <div className={styles.filters}>
+          <Calendar value={date} onChange={changeDate}/>
+          
+        </div>
         <div>
           {
             !loading ? (

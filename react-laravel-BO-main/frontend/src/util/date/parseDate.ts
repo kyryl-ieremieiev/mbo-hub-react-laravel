@@ -18,3 +18,15 @@ export function parseDate(date: Date) {
     return `${yyyy}-${mm}-${dd}`;
 }
   
+
+export function formatDateDutch(dateString: string): string {
+    const date = new Date(dateString);
+  
+    return new Intl.DateTimeFormat("nl-NL", {
+      weekday: "long",
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(date);
+  }
+    

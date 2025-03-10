@@ -1,0 +1,30 @@
+.event__card {
+    border: 1px solid #E2E8F0;
+    border-radius: 1rem;
+
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+
+    margin-bottom: 1.5rem;
+}
+
+.event__heading {
+    display: flex;
+    justify-content: space-between;
+}
+
+.event__title {
+    margin-bottom: 0;
+    color: #080808;
+}
+
+.event__underTitle {
+    color: #6A7280;
+    margin-bottom: 0;
+}
+
+.event__desc {
+    margin-top: 2rem;
+}

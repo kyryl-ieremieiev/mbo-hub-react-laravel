@@ -4,7 +4,7 @@ export interface EventType {
     id: number | string,
     image: string | null,
     location: string,
-    tags: string[] | null,
+    tags: { name: string; color?: string | undefined; }[] | null,
     title: string,
     created_at: string | null,
     updated_at: string
