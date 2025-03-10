@@ -25,10 +25,10 @@ class EventController extends Controller
         }
 
         if ($request->has('tags')) {
-            $tagNames = explode(',', $request->tags);
+            $tagIds = explode(',', $request->tags);
 
-            $query->whereHas('tags', function ($q) use ($tagNames) {
-                $q->whereIn('name', $tagNames);
+            $query->whereHas('tags', function ($q) use ($tagIds) {
+                $q->whereIn('tags.id', $tagIds);
             });
         }
 
