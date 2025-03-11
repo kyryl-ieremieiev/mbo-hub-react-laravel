@@ -11,7 +11,7 @@ export default function ProjectCard({ project }: Props) {
 
     const previewText = project.content.replace(regex, subst);
 
-    const tags = project.tags && project.tags.map((tag: string) => {return {name: tag}});
+    const tags = project.tags && project.tags.map((tag: any) => ({ name: tag.name }));
 
     return (
         <ImageCard banner={project.amsterdam_750_slider} imagePath={project.image ? `${process.env.NEXT_PUBLIC_API_IMG_URL}/${project.image}` : null} link={`/projects/${project.slug}`}>
